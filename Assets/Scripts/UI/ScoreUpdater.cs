@@ -6,14 +6,10 @@ using UnityEngine.UI;
 public class ScoreUpdater : MonoBehaviour
 {
     public GameObject scoreDisplay;
-    void Start()
-    {
-        scoreDisplay.GetComponent<Text>().text = "Score: 10";
-        
-    }
+    public static int orbScore; 
 
-    void FixUpdate()
+    void FixedUpdate()
     {
-        
+        scoreDisplay.GetComponent<Text>().text = "Score: " + orbScore.ToString();
     }
 }

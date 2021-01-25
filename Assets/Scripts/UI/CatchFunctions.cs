@@ -8,12 +8,14 @@ public class CatchFunctions : MonoBehaviour
     public GameObject middlePlatfolm;
     public GameObject rightPlatfolm;
     public bool activePlat = false;
+    public AudioSource platActioveFX;
 
     public void LeftPlat()
     {
         if (!activePlat)
         {
             activePlat = true;
+            platActioveFX.Play();
             leftPlatfolm.SetActive(true);
             StartCoroutine(LeftReset());
         }
@@ -24,6 +26,7 @@ public class CatchFunctions : MonoBehaviour
         if (!activePlat)
         {
             activePlat = true;
+            platActioveFX.Play();
             middlePlatfolm.SetActive(true);
             StartCoroutine(MiddleReset());
         }
@@ -34,6 +37,7 @@ public class CatchFunctions : MonoBehaviour
         if (!activePlat)
         {
             activePlat = true;
+            platActioveFX.Play();
             rightPlatfolm.SetActive(true);
             StartCoroutine(RightReset());
         }
