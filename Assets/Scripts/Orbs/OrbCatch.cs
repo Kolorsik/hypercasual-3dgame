@@ -27,6 +27,7 @@ public class OrbCatch : MonoBehaviour
                     break;
                 }
         }
+        ScoreUpdater.orbCount++;
         other.gameObject.SetActive(false);
     }
 }
