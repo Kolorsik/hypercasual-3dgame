@@ -10,9 +10,18 @@ public class ScoreUpdater : MonoBehaviour
     public static int orbScore;
     public static int orbCount;
 
+    private Text textScore;
+    private Text textOrbsCount;
+
+    void Start()
+    {
+        textScore = scoreDisplay.GetComponent<Text>();
+        textOrbsCount = orbsDisplay.GetComponent<Text>();
+    }
+
     void FixedUpdate()
     {
-        scoreDisplay.GetComponent<Text>().text = "Score: " + orbScore.ToString();
-        orbsDisplay.GetComponent<Text>().text = "Orbs Caugh: " + orbCount.ToString();
+        textScore.text = "Score: " + orbScore.ToString();
+        textOrbsCount.text = "Orbs Caugh: " + orbCount.ToString();
     }
 }
