@@ -1,0 +1,57 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class OCMBegins : MonoBehaviour
+{
+    public GameObject mainLogo;
+    public GameObject[] menuText;
+    public GameObject splashBackground;
+    public GameObject bgm;
+    public GameObject globalScripts;
+    public GameObject countdownText;
+    public GameObject tapButton;
+
+    void Start()
+    {
+        StartCoroutine(StartupGame());
+    }
+
+    IEnumerator StartupGame()
+    {
+        yield return new WaitForSeconds(1f);
+        mainLogo.SetActive(true);
+        yield return new WaitForSeconds(2.5f);
+        mainLogo.SetActive(false);
+        menuText[0].SetActive(true);
+        menuText[1].SetActive(true);
+        tapButton.SetActive(true);
+    }
+
+    public void TapToStart()
+    {
+        tapButton.SetActive(false);
+        menuText[0].SetActive(false);
+        menuText[1].SetActive(false);
+        splashBackground.GetComponent<Animator>().Play("SplashFadeOut");
+        StartCoroutine(BeginTheGame());
+    }
+
+    IEnumerator BeginTheGame()
+    {
+        yield return new WaitForSeconds(1f);
+        countdownText.SetActive(true);
+        yield return new WaitForSeconds(1f);
+        countdownText.GetComponent<Text>().text = "2";
+        yield return new WaitForSeconds(1f);
+        countdownText.GetComponent<Text>().text = "1";
+        yield return new WaitForSeconds(1f);
+        countdownText.SetActive(false);
+        countdownText.GetComponent<Text>().text = "3";
+        bgm.SetActive(true);
+        splashBackground.SetActive(false);
+        globalScripts.GetComponent<Timer>().enabled = true;
+        globalScripts.GetComponent<OrbsGenerator>().enabled = true;
+    }
+}
