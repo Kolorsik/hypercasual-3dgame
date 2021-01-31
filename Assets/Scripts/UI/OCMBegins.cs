@@ -12,6 +12,7 @@ public class OCMBegins : MonoBehaviour
     public GameObject globalScripts;
     public GameObject countdownText;
     public GameObject tapButton;
+    public GameObject[] finalText;
 
     void Start()
     {
@@ -40,6 +41,8 @@ public class OCMBegins : MonoBehaviour
 
     IEnumerator BeginTheGame()
     {
+        finalText[0].SetActive(false);
+        finalText[1].SetActive(false);
         yield return new WaitForSeconds(1f);
         countdownText.SetActive(true);
         yield return new WaitForSeconds(1f);
